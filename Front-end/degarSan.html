@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>DEGARSAN | EXISTENCE OFFICE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#636565", "surface-container-low": "#111111", "on-primary": "#2f3131", "surface-tint": "#c6c6c7", "secondary-fixed": "#e4e2e2", "surface-container": "#1f1f1f", "on-tertiary-container": "#636565", "tertiary": "#ffffff", "surface-dim": "#131313", "on-tertiary-fixed-variant": "#454747", "surface-container-highest": "#353535", "tertiary-container": "#e2e2e2", "surface-bright": "#393939", "outline-muted": "rgba(255, 255, 255, 0.05)", "inverse-primary": "#5d5f5f", "surface-container-lowest": "#0e0e0e", "primary": "#ffffff", "on-tertiary-fixed": "#1a1c1c", "on-background": "#e2e2e2", "on-error-container": "#ffdad6", "inverse-on-surface": "#303030", "on-tertiary": "#2f3131", "outline-variant": "#444748", "tertiary-fixed-dim": "#c6c6c7", "on-surface-variant": "#c4c7c8", "secondary-container": "#464747", "primary-fixed": "#e2e2e2", "secondary-fixed-dim": "#c7c6c6", "surface": "#131313", "on-surface": "#e2e2e2", "on-primary-fixed": "#1a1c1c", "on-primary-fixed-variant": "#454747", "surface-variant": "#353535", "primary-container": "#e2e2e2", "primary-fixed-dim": "#c6c6c7", "on-secondary-container": "#b6b5b5", "on-secondary-fixed-variant": "#464747", "background": "#131313", "surface-container-high": "#2a2a2a", "on-error": "#690005", "tertiary-fixed": "#e2e2e2", "outline": "#8e9192", "secondary": "#c7c6c6", "on-secondary": "#303030", "scrim-overlay": "rgba(0, 0, 0, 0.4)", "inverse-surface": "#e2e2e2", "on-secondary-fixed": "#1b1c1c", "error": "#ffb4ab", "error-container": "#93000a"
+                    },
+                    "spacing": { "section-gap": "160px", "margin-desktop": "64px", "gutter": "32px", "margin-mobile": "24px", "unit": "8px", "container-max": "1280px" },
+                    "fontFamily": { "label-sm": ["Hanken Grotesk"], "headline-xl": ["Playfair Display"], "display-lg-mobile": ["Playfair Display"], "label-md": ["Hanken Grotesk"], "body-lg": ["Hanken Grotesk"], "body-md": ["Hanken Grotesk"], "headline-xl-mobile": ["Playfair Display"], "headline-md": ["Playfair Display"], "display-lg": ["Playfair Display"] },
+                    "fontSize": { "label-sm": ["10px", {"lineHeight": "1.2", "letterSpacing": "0.3em", "fontWeight": "500"}], "headline-xl": ["56px", {"lineHeight": "1.1", "fontWeight": "600"}], "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}], "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "600"}], "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}], "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}], "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}], "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}], "display-lg": ["92px", {"lineHeight": "1", "letterSpacing": "-0.04em", "fontWeight": "700"}] }
+                },
+            },
+        }
+    </script>
+    <style>
+        body { background-color: #000000; color: #ffffff; overflow-x: hidden; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .mix-diff { mix-blend-mode: difference; }
+        .scroll-line { width: 1px; height: 100px; background: linear-gradient(to bottom, #ffffff, transparent); }
+    </style>
+</head>
+<body class="selection:bg-primary selection:text-background" data-page-id="degarsan">
+
+    <!-- TopNavBar -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-700 bg-black/20 backdrop-blur-md border-b border-white/5">
+        <div id="nav-container" class="max-w-container-max mx-auto px-margin-desktop h-24 flex justify-between items-center transition-all duration-700">
+            <a data-cms-text="nav_logo" class="font-headline-md text-headline-md text-white uppercase tracking-tighter" href="index.html">EXISTENCE OFFICE</a>
+            <div class="hidden md:flex gap-12 items-center">
+                <a data-cms-text="nav_link_home" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="index.html">Home</a>
+                <a data-cms-text="nav_link_projects" class="font-label-md text-label-md text-white border-b border-white pb-1" href="projects.html">Projects</a>
+                <a data-cms-text="nav_link_achievements" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="achievements.html">Achievements</a>
+                <a data-cms-text="nav_link_about" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="about.html">About</a>
+                <a data-cms-text="nav_link_contact" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="contact.html">Contact</a>
+            </div>
+            <button class="md:hidden flex items-center p-2 text-white"><span class="material-symbols-outlined">menu</span></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full flex items-end overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img data-cms-img="hero_bg" alt="Degarsan Cosmetics Store Front" class="w-full h-full object-cover grayscale brightness-50" src="assets/Degarsan/Degarsan-5.jpg"/>
+        </div>
+        
+        <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop pb-[240px]">
+            <h1 data-cms-text="hero_title" class="reveal font-display-lg text-display-lg-mobile md:text-display-lg tracking-[-0.05em] leading-none mb-4 mix-diff">DEGARSAN</h1>
+            <div class="reveal delay-200 flex items-center gap-4 text-primary/60">
+                <div class="w-12 h-[1px] bg-primary/40"></div>
+                <span data-cms-text="hero_category" class="font-label-md text-label-md uppercase tracking-[0.2em]">05 / PUBLIC SPACE</span>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-12 left-0 w-full flex justify-center z-30 pointer-events-none">
+            <div class="reveal flex flex-col items-center gap-4">
+                <span data-cms-text="hero_scroll" class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-[0.3em] whitespace-nowrap">SCROLL TO EXPLORE</span>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metadata Section -->
+    <section class="py-section-gap px-margin-desktop bg-background">
+        <div class="max-w-container-max mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter reveal">
+                <div><span data-cms-text="meta_label_1" class="font-label-sm text-label-sm text-on-primary-container uppercase">LOCATION</span><div class="h-[1px] w-full bg-white/10 my-4"></div><span data-cms-text="meta_val_1" class="font-headline-md italic">Anzali Free Zone</span></div>
+                <div><span data-cms-text="meta_label_2" class="font-label-sm text-label-sm text-on-primary-container uppercase">YEAR</span><div class="h-[1px] w-full bg-white/10 my-4"></div><span data-cms-text="meta_val_2" class="font-headline-md italic">2024</span></div>
+                <div><span data-cms-text="meta_label_3" class="font-label-sm text-label-sm text-on-primary-container uppercase">TYPOLOGY</span><div class="h-[1px] w-full bg-white/10 my-4"></div><span data-cms-text="meta_val_3" class="font-headline-md italic">Commercial / Retail</span></div>
+                <div><span data-cms-text="meta_label_4" class="font-label-sm text-label-sm text-on-primary-container uppercase">AUTHOR</span><div class="h-[1px] w-full bg-white/10 my-4"></div><span data-cms-text="meta_val_4" class="font-headline-md italic">Forough Farahmand</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="py-section-gap px-margin-desktop">
+        <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            <div class="md:col-span-4 reveal"><h2 data-cms-text="concept_title" class="font-label-md text-label-md uppercase tracking-[0.4em] text-on-primary-container sticky top-32">THE CONCEPT</h2></div>
+            <div class="md:col-span-7 md:col-start-6 reveal delay-300">
+                <p data-cms-text="concept_quote" class="font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-12 italic">"A delicate journey from calm neutrality to vibrant energy, defined by weightlessness and a distinctly feminine character."</p>
+                <p data-cms-text="concept_p1" class="font-body-lg text-body-lg text-secondary leading-relaxed mb-6">The "Degarsan" cosmetics and personal care store is meticulously designed around two main zones: the entrance and the pause space. Despite its compact footprint, each zone is distinguished by a unique identity. Upon arrival, visitors experience a sense of weightlessness, neutrality, and transparency, masterfully created through the interplay of glass, white surfaces, and the soft glow of bubble lights.</p>
+                <p data-cms-text="concept_p2" class="font-body-lg text-body-lg text-secondary leading-relaxed mb-6">As one transitions into the pause space, the atmosphere transforms into a dynamic, feminine, and inviting environment. A peach color palette, warm wooden textures, and focused, intense lighting heighten the sensory experience. The geometry of the space is defined by clean, coherent lines, while golden steel accents lend a subtle yet luxurious touch.</p>
+                <p data-cms-text="concept_p3" class="font-body-lg text-body-lg text-secondary leading-relaxed">The light tones of the walls and flooring enhance the perceived spaciousness, guiding visitors on a delicate journey—from calm neutrality to vibrant energy and a distinctly feminine character.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (with overflow-hidden and scale-[1.01] to fix white borders) -->
+    <section class="py-section-gap px-margin-desktop bg-surface-container-lowest">
+        <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-y-24 gap-x-gutter">
+            <!-- Image 1 -->
+            <div class="md:col-span-8 reveal overflow-hidden">
+                <img data-cms-img="gallery_img_1" src="assets/Degarsan/DegarSan-9.jpg" alt="Degarsan Store Interior View" class="block w-full scale-[1.01] grayscale hover:grayscale-0 transition duration-1000">
+            </div>
+            <!-- Image 2 -->
+            <div class="md:col-span-4 md:mt-32 reveal overflow-hidden">
+                <img data-cms-img="gallery_img_2" src="assets/Degarsan/DegarSan-1.jpg" alt="Degarsan Display Shelves" class="block w-full scale-[1.01] grayscale hover:grayscale-0 transition duration-1000">
+            </div>
+            <!-- Image 3 -->
+            <div class="md:col-span-5 reveal overflow-hidden">
+                <img data-cms-img="gallery_img_3" src="assets/Degarsan/DegarSan-2.jpg" alt="Degarsan Cosmetics Display" class="block w-full scale-[1.01] grayscale hover:grayscale-0 transition duration-1000">
+            </div>
+            <!-- Image 4 -->
+            <div class="md:col-span-7 md:-mt-16 reveal overflow-hidden">
+                <img data-cms-img="gallery_img_4" src="assets/Degarsan/DegarSan-7.jpg" alt="Degarsan Bubble Lights and Ceiling" class="block w-full scale-[1.01] grayscale hover:grayscale-0 transition duration-1000">
+            </div>
+            <!-- Image 5 (Full width bottom) -->
+            <div class="md:col-span-12 reveal overflow-hidden">
+                <img data-cms-img="gallery_img_5" src="assets/Degarsan/DegarSan-8.jpg" alt="Degarsan Storefront View" class="block w-full scale-[1.01] grayscale hover:grayscale-0 transition duration-1000">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-16 px-margin-desktop bg-black border-t border-white/5">
+        <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-4 text-center md:text-left">
+                <a data-cms-text="footer_logo" class="font-headline-md text-2xl text-white tracking-tighter" href="index.html">EXISTENCE OFFICE</a>
+                <span data-cms-text="footer_copyright" class="text-white/40 text-xs tracking-widest uppercase">© 2026 EXISTENCE OFFICE. ALL RIGHTS RESERVED.</span>
+            </div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-8">
+                <a data-cms-text="footer_social1" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="https://www.instagram.com/existence_office/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a data-cms-text="footer_social2" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="https://t.me/+989117212878" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a data-cms-text="footer_social3" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="https://wa.me/989117212878" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a data-cms-text="footer_social4" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="#">Behance</a>
+                <a data-cms-text="footer_social5" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav'), navC = document.getElementById('nav-container');
+            if (window.scrollY > 50) { 
+                nav.classList.add('bg-black/80', 'backdrop-blur-2xl'); 
+                navC.classList.replace('h-24', 'h-20'); 
+            } else { 
+                nav.classList.remove('bg-black/80', 'backdrop-blur-2xl'); 
+                navC.classList.replace('h-20', 'h-24'); 
+            }
+        });
+    </script>
+    <script src="cms-loader.js"></script>
+</body>
+</html>

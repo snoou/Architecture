@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fa" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Existence Office | پنل مدیریت هوشمند</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0c0c0e; color: #e2e2e2; direction: rtl; font-family: system-ui, sans-serif; }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <div id="login-box" class="max-w-md mx-auto bg-neutral-900 p-8 border border-neutral-800 rounded-lg mt-20">
+        <h2 class="text-2xl font-bold mb-6 text-center text-white tracking-widest">ورود به پنل مدیریت</h2>
+        <input id="username" type="text" placeholder="نام کاربری" class="w-full mb-4 p-3 bg-black border border-neutral-700 rounded focus:outline-none text-left" dir="ltr">
+        <input id="password" type="password" placeholder="رمز عبور" class="w-full mb-6 p-3 bg-black border border-neutral-700 rounded focus:outline-none text-left" dir="ltr">
+        <button onclick="login()" class="w-full bg-white text-black font-bold p-3 rounded hover:bg-neutral-200 transition">ورود امن</button>
+        <p id="login-error" class="text-red-500 mt-4 text-center hidden">خطا در احراز هویت!</p>
+    </div>
+
+    <div id="dashboard" class="max-w-6xl mx-auto hidden">
+        <div class="flex justify-between items-center border-b border-neutral-800 pb-6 mb-10">
+            <h1 class="text-3xl font-bold tracking-tight">تنظیمات زنده محتوای سایت</h1>
+            <button onclick="logout()" class="text-neutral-500 hover:text-red-400 underline text-sm">خروج از حساب</button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-5 bg-neutral-900 p-6 border border-neutral-800 rounded-lg flex flex-col h-fit">
+                <h2 class="text-xl font-bold mb-4 text-white">۱. انتخاب صفحه</h2>
+                <select id="global-page-select" onchange="loadPageContent()" class="w-full mb-6 p-3 bg-black border border-neutral-700 rounded text-white">
+                    <option value="home">صفحه اصلی (Home)</option>
+                    <option value="about">درباره ما (About)</option>
+                    <option value="varesh">پروژه وارش (Varesh)</option>
+                    <option value="gilsha">پروژه گیلشا (Gilsha)</option>
+                    <option value="liana">پروژه لیانا (Liana)</option>
+                    <option value="tavous">پروژه طاووس (Tavous)</option>
+                    <option value="degarsan">پروژه دگرسان (Degarsan)</option>
+                    <option value="contact">تماس با ما (Contact)</option>
+                </select>
+
+                <h2 class="text-xl font-bold mb-4 text-white border-t border-neutral-800 pt-6">آیتم‌های ثبت شده در این صفحه</h2>
+                <p class="text-xs text-neutral-400 mb-4">برای ویرایش، روی دکمه "ویرایش" هر آیتم کلیک کنید.</p>
+                
+                <div id="content-list" class="flex flex-col gap-3 overflow-y-auto max-h-[500px] pr-2 custom-scrollbar">
+                    </div>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col gap-8">
+                
+                <div id="text-editor-box" class="bg-neutral-900 p-6 border border-neutral-800 rounded-lg transition-all duration-300">
+                    <h2 class="text-xl font-bold mb-4 text-white">۲. ویرایشگر متن</h2>
+                    
+                    <label class="block text-xs text-neutral-400 mb-1">کلید اختصاصی (Key):</label>
+                    <input id="text-key" type="text" placeholder="مثال: home_hero_title" class="w-full mb-4 p-3 bg-black border border-neutral-700 rounded text-left font-mono" dir="ltr">
+
+                    <label class="block text-xs text-neutral-400 mb-1">متن:</label>
+                    <textarea id="text-value" placeholder="متن مورد نظر خود را اینجا بنویسید..." class="w-full h-32 mb-4 p-3 bg-black border border-neutral-700 rounded"></textarea>
+                    
+                    <button onclick="saveText()" class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded font-bold transition">ذخیره و بروزرسانی متن</button>
+                </div>
+
+                <div id="img-editor-box" class="bg-neutral-900 p-6 border border-neutral-800 rounded-lg transition-all duration-300">
+                    <h2 class="text-xl font-bold mb-4 text-white">۲. آپلودگر تصویر</h2>
+
+                    <label class="block text-xs text-neutral-400 mb-1">کلید اختصاصی (Key):</label>
+                    <input id="img-key" type="text" placeholder="مثال: home_hero_bg" class="w-full mb-4 p-3 bg-black border border-neutral-700 rounded text-left font-mono" dir="ltr">
+
+                    <label class="block text-xs text-neutral-400 mb-1">انتخاب فایل تصویر:</label>
+                    <input id="img-file" type="file" class="w-full mb-6 text-sm text-neutral-400 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-neutral-800 file:text-white hover:file:bg-neutral-700">
+
+                    <button onclick="uploadImage()" class="w-full bg-green-600 hover:bg-green-700 text-white p-3 rounded font-bold transition">آپلود و جایگذاری عکس</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const BACKEND = 'http://localhost:3000/api';
+        let token = localStorage.getItem('existence_token');
+
+        if(token) {
+            showDashboard();
+            loadPageContent(); // لود خودکار محتوای صفحه اول
+        }
+
+        async function login() {
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            const errEl = document.getElementById('login-error');
+
+            const res = await fetch(`${BACKEND}/auth/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: u, password: p })
+            });
+            const data = await res.json();
+            if(data.success) {
+                localStorage.setItem('existence_token', data.token);
+                token = data.token;
+                errEl.classList.add('hidden');
+                showDashboard();
+                loadPageContent();
+            } else {
+                errEl.innerText = data.error || "خطا در ورود";
+                errEl.classList.remove('hidden');
+            }
+        }
+
+        function showDashboard() {
+            document.getElementById('login-box').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+        }
+
+        function logout() {
+            localStorage.removeItem('existence_token');
+            location.reload();
+        }
+
+        // گرفتن محتوای صفحه انتخاب شده از دیتابیس
+        async function loadPageContent() {
+            const page = document.getElementById('global-page-select').value;
+            const listContainer = document.getElementById('content-list');
+            listContainer.innerHTML = '<p class="text-neutral-500 text-sm">در حال بارگذاری...</p>';
+
+            try {
+                const res = await fetch(`${BACKEND}/content/${page}`);
+                const data = await res.json();
+                
+                listContainer.innerHTML = '';
+                
+                if(data.length === 0) {
+                    listContainer.innerHTML = '<p class="text-neutral-500 text-sm">هنوز هیچ المانی برای این صفحه ثبت نشده است. میتوانید از فرم‌های سمت چپ المان جدید بسازید.</p>';
+                    return;
+                }
+
+                data.forEach(item => {
+                    const isText = item.type === 'text';
+                    const typeBadge = isText ? '<span class="bg-blue-900 text-blue-300 text-[10px] px-2 py-1 rounded">متن</span>' : '<span class="bg-green-900 text-green-300 text-[10px] px-2 py-1 rounded">عکس</span>';
+                    
+                    const displayValue = isText ? item.value.substring(0, 30) + '...' : `<img src="http://localhost:3000${item.value}" class="h-8 rounded">`;
+
+                    const html = `
+                        <div class="bg-black border border-neutral-800 p-3 rounded flex justify-between items-center group hover:border-neutral-600 transition">
+                            <div class="flex flex-col gap-1 overflow-hidden">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-xs text-neutral-300" dir="ltr">${item.key}</span>
+                                    ${typeBadge}
+                                </div>
+                                <div class="text-neutral-500 text-xs mt-1 truncate max-w-[200px]" dir="ltr">${displayValue}</div>
+                            </div>
+                            <button onclick="fillEditor('${item.type}', '${item.key}', \`${isText ? item.value.replace(/`/g, '\\`') : ''}\`)" class="text-xs bg-neutral-800 hover:bg-white hover:text-black px-3 py-1.5 rounded transition">ویرایش</button>
+                        </div>
+                    `;
+                    listContainer.insertAdjacentHTML('beforeend', html);
+                });
+
+            } catch (err) {
+                listContainer.innerHTML = '<p class="text-red-500 text-sm">خطا در ارتباط با سرور!</p>';
+            }
+        }
+
+        // پر کردن خودکار فرم‌ها با کلیک روی آیتم لیست
+        function fillEditor(type, key, value) {
+            if (type === 'text') {
+                document.getElementById('text-key').value = key;
+                document.getElementById('text-value').value = value;
+                // افکت بصری برای فوکوس
+                document.getElementById('text-editor-box').classList.add('ring-2', 'ring-blue-600');
+                setTimeout(() => document.getElementById('text-editor-box').classList.remove('ring-2', 'ring-blue-600'), 1000);
+                window.scrollTo({ top: document.getElementById('text-editor-box').offsetTop - 50, behavior: 'smooth' });
+            } else if (type === 'image') {
+                document.getElementById('img-key').value = key;
+                document.getElementById('img-file').value = ''; // ریست کردن فایل آپلود شده
+                // افکت بصری برای فوکوس
+                document.getElementById('img-editor-box').classList.add('ring-2', 'ring-green-600');
+                setTimeout(() => document.getElementById('img-editor-box').classList.remove('ring-2', 'ring-green-600'), 1000);
+                window.scrollTo({ top: document.getElementById('img-editor-box').offsetTop - 50, behavior: 'smooth' });
+            }
+        }
+
+        async function saveText() {
+            const page = document.getElementById('global-page-select').value;
+            const key = document.getElementById('text-key').value;
+            const value = document.getElementById('text-value').value;
+
+            if(!key || !value) return alert('لطفا تمام فیلدها را پر کنید');
+
+            const res = await fetch(`${BACKEND}/admin/text`, {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ page, key, value })
+            });
+            if(res.ok) {
+                alert('متن با موفقیت ذخیره شد!');
+                loadPageContent(); // رفرش خودکار لیست
+                document.getElementById('text-key').value = '';
+                document.getElementById('text-value').value = '';
+            }
+        }
+
+        async function uploadImage() {
+            const page = document.getElementById('global-page-select').value;
+            const key = document.getElementById('img-key').value;
+            const fileInput = document.getElementById('img-file');
+
+            if(!key || !fileInput.files[0]) return alert('پر کردن کلید و انتخاب عکس الزامی است.');
+
+            const formData = new FormData();
+            formData.append('image', fileInput.files[0]);
+            formData.append('page', page);
+            formData.append('key', key);
+
+            const res = await fetch(`${BACKEND}/admin/upload`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` },
+                body: formData
+            });
+            if(res.ok) {
+                alert('تصویر جدید با موفقیت جایگزین شد!');
+                loadPageContent(); // رفرش خودکار لیست
+                document.getElementById('img-key').value = '';
+                fileInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

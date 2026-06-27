@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>CONTACT | EXISTENCE OFFICE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+        }
+        .mix-difference {
+            mix-blend-mode: difference;
+        }
+        
+        /* Soft Fade-Up Effect */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.33, 1, 0.68, 1), transform 1.2s cubic-bezier(0.33, 1, 0.68, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1.05); }
+            50% { transform: scale(1.08); }
+        }
+
+        .image-breathe {
+            animation: breathe 8s ease-in-out infinite;
+        }
+
+        .link-underline {
+            position: relative;
+            text-decoration: none;
+        }
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        .link-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-item {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .image-breathe, .link-underline::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#2f3131",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "scrim-overlay": "rgba(0, 0, 0, 0.4)",
+                        "inverse-surface": "#e2e2e2",
+                        "secondary": "#c7c6c6",
+                        "on-secondary": "#303030",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-low": "#1b1b1b",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#e2e2e2",
+                        "outline": "#8e9192",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-secondary-container": "#b6b5b5",
+                        "on-secondary-fixed-variant": "#464747",
+                        "background": "#000000",
+                        "primary-container": "#e2e2e2",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-primary-fixed": "#1a1c1c",
+                        "surface": "#131313",
+                        "on-surface": "#e2e2e2",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-surface-variant": "#c4c7c8",
+                        "secondary-container": "#464747",
+                        "primary-fixed": "#e2e2e2",
+                        "outline-variant": "#444748",
+                        "on-tertiary": "#2f3131",
+                        "inverse-on-surface": "#303030",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-background": "#e2e2e2",
+                        "inverse-primary": "#5d5f5f",
+                        "tertiary-container": "#e2e2e2",
+                        "surface-bright": "#393939",
+                        "outline-muted": "rgba(255, 255, 255, 0.05)",
+                        "tertiary": "#ffffff",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface-container-highest": "#353535",
+                        "surface-container": "#1f1f1f",
+                        "on-tertiary-container": "#636565",
+                        "surface-tint": "#c6c6c7",
+                        "secondary-fixed": "#e4e2e2",
+                        "on-primary-container": "#636565",
+                        "on-primary": "#2f3131"
+                    },
+                    "spacing": {
+                        "section-gap": "160px",
+                        "margin-desktop": "64px",
+                        "gutter": "32px",
+                        "margin-mobile": "24px",
+                        "unit": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-xl": ["Playfair Display"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-xl-mobile": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "headline-xl": ["56px", {"lineHeight": "1.1", "fontWeight": "600"}],
+                        "label-sm": ["10px", {"lineHeight": "1.2", "letterSpacing": "0.3em", "fontWeight": "500"}],
+                        "display-lg": ["92px", {"lineHeight": "1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-background transition-colors duration-700 font-body-md overflow-x-hidden" data-page-id="contact">
+
+    <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-700 bg-black/20 backdrop-blur-md border-b border-white/5">
+        <div id="nav-container" class="max-w-container-max mx-auto px-margin-desktop h-24 flex justify-between items-center transition-all duration-700">
+            <a data-cms-text="nav_logo" class="font-headline-md text-headline-md text-white uppercase tracking-tighter" href="index.html">EXISTENCE OFFICE</a>
+            <div class="hidden md:flex gap-12 items-center">
+                <a data-cms-text="nav_link_home" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="index.html">Home</a>
+                <a data-cms-text="nav_link_projects" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="projects.html">Projects</a>
+                <a data-cms-text="nav_link_achievements" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="achievements.html">Achievements</a>
+                <a data-cms-text="nav_link_about" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="about.html">About</a>
+                <a data-cms-text="nav_link_contact" class="font-label-md text-label-md text-white border-b border-white pb-1" href="#">Contact</a>
+            </div>
+            <button class="md:hidden flex items-center p-2 text-white">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="md:pl-24 pt-40 pb-32 min-h-screen flex flex-col max-w-container-max mx-auto px-margin-desktop">
+        <section class="grid grid-cols-12 gap-gutter items-start">
+            <div class="col-span-12 md:col-span-6 flex flex-col">
+                <h1 data-cms-text="contact_title" class="font-display-lg text-display-lg-mobile md:text-display-lg mb-20 tracking-tighter mix-difference reveal-item">
+                    CONTACT
+                </h1>
+                <div class="flex flex-col gap-12 max-w-md">
+                    <div class="flex flex-col gap-16">
+                        <div class="group reveal-item">
+                            <p data-cms-text="office_1_label" class="font-label-sm text-label-sm text-secondary-fixed-dim mb-4 tracking-[0.4em] opacity-60">OFFICE RASHT</p>
+                            <div class="w-full h-[1px] bg-white/10 mb-6"></div>
+                            <address data-cms-text="office_1_address" class="not-italic font-headline-md text-headline-md leading-relaxed tracking-tight group-hover:pl-4 transition-all duration-500">
+                                Corner of 93rd St, Golsar,<br/>
+                                Rasht, Gilan, Iran
+                            </address>
+                        </div>
+                        <div class="group reveal-item">
+                            <p data-cms-text="office_2_label" class="font-label-sm text-label-sm text-secondary-fixed-dim mb-4 tracking-[0.4em] opacity-60">OFFICE ANZALI</p>
+                            <div class="w-full h-[1px] bg-white/10 mb-6"></div>
+                            <address data-cms-text="office_2_address" class="not-italic font-headline-md text-headline-md leading-relaxed tracking-tight group-hover:pl-4 transition-all duration-500">
+                            Jafrood St, Anzali Free Zone,<br/>
+                            Anzali, Gilan, Iran
+                            </address>
+                        </div>
+                    </div>
+                    <div class="group reveal-item">
+                        <p data-cms-text="comm_label" class="font-label-sm text-label-sm text-secondary-fixed-dim mb-4 tracking-[0.4em] opacity-60">COMMUNICATION</p>
+                        <div class="w-full h-[1px] bg-white/10 mb-6"></div>
+                        <div class="flex flex-col gap-2 group-hover:pl-4 transition-all duration-500">
+                            <a data-cms-text="comm_phone_1" class="font-headline-md text-headline-md tracking-tight hover:text-secondary transition-colors link-underline w-fit" href="tel:+989120783886">+98 912 078 3886</a>
+                            <a data-cms-text="comm_phone_2" class="font-headline-md text-headline-md tracking-tight hover:text-secondary transition-colors link-underline w-fit" href="tel:+989117212878">+98 911 721 2878</a>
+                            <a data-cms-text="comm_email" class="font-headline-md text-headline-md tracking-tight hover:text-secondary transition-colors link-underline w-fit" href="mailto:forough2710055821@gmail.com">forough2710055821@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="group reveal-item">
+                        <p data-cms-text="channels_label" class="font-label-sm text-label-sm text-secondary-fixed-dim mb-4 tracking-[0.4em] opacity-60">CHANNELS</p>
+                        <div class="w-full h-[1px] bg-white/10 mb-6"></div>
+                        <div class="flex flex-wrap gap-8 group-hover:pl-4 transition-all duration-500">
+                            <a data-cms-text="channel_instagram" class="font-label-md text-label-md tracking-[0.3em] hover:opacity-50 transition-opacity link-underline" href="https://www.instagram.com/existence_office/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+                            <a data-cms-text="channel_linkedin" class="font-label-md text-label-md tracking-[0.3em] hover:opacity-50 transition-opacity link-underline" href="#">LINKEDIN</a>
+                            <a data-cms-text="channel_behance" class="font-label-md text-label-md tracking-[0.3em] hover:opacity-50 transition-opacity link-underline" href="#">BEHANCE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-12 md:col-span-5 md:col-start-8 mt-20 md:mt-0 relative reveal-item">
+                <div class="aspect-[3/4] overflow-hidden group cursor-crosshair border-white/10 border-0">
+                    <img data-cms-img="contact_image" alt="Minimalist architectural layout" class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-[2000ms] ease-out image-breathe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqiLXULZbWZFFk69_W_BGpFH_IMMtXS0tdJpSrwApzK5uiyg9XSqOvq7f33pun1dIctbGrkn4blhvlZoG1F56_05sVYYNRUU9Vfv7uFXDcQ2CvYFxYM8ynJuwut1Qcao4y8Irq2eMlsuRdMXQ0rGhHffCwEaD_EsKiCG1LxPEjrQmcVcIaAqHoTwGjxXFsmsnLgR0NJAEdfNKLNk2HdUsF1fj1GpONwYOZwtpb5Goa9ZFS3kfawj7lFhwMuWV9cRgVvG_LFuERrrI"/>
+                </div>
+                <div class="mt-8 flex justify-between items-start opacity-40">
+                    <span data-cms-text="contact_img_ref1" class="font-label-sm text-label-sm tracking-[0.4em]">REF_18.ZRH</span>
+                    <span data-cms-text="contact_img_ref2" class="font-label-sm text-label-sm tracking-[0.4em]">8004_02</span>
+                </div>
+                <div class="hidden md:block absolute -right-16 top-0 w-[1px] h-full bg-gradient-to-b from-white/0 via-white/10 to-white/0"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full py-16 px-margin-desktop bg-black border-t border-white/5">
+        <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-4 text-center md:text-left">
+                <a data-cms-text="footer_logo" class="font-headline-md text-2xl text-white tracking-tighter" href="index.html">EXISTENCE OFFICE</a>
+                <span data-cms-text="footer_copyright" class="text-white/40 text-xs tracking-widest uppercase">© 2026 EXISTENCE OFFICE. ALL RIGHTS RESERVED.</span>
+            </div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-8">
+                <a data-cms-text="footer_social1" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="https://www.instagram.com/existence_office/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a data-cms-text="footer_social2" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="https://t.me/+989117212878" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a data-cms-text="footer_social3" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="https://wa.me/989117212878" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a data-cms-text="footer_social4" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="#">Behance</a>
+                <a data-cms-text="footer_social5" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            const visibleItems = entries.filter(entry => entry.isIntersecting);
+            visibleItems.forEach((entry) => {
+                const allItems = Array.from(document.querySelectorAll('.reveal-item'));
+                const index = allItems.indexOf(entry.target);
+                entry.target.style.transitionDelay = `${index * 180}ms`;
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal-item').forEach(el => observer.observe(el));
+
+        document.addEventListener('mousemove', (e) => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const img = document.querySelector('.image-breathe');
+            if (img) img.style.transform = `translate(${(x - 0.5) * 15}px, ${(y - 0.5) * 15}px)`;
+        });
+
+        const nav = document.getElementById('main-nav');
+        const navContainer = document.getElementById('nav-container');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black/80', 'backdrop-blur-2xl');
+                nav.classList.remove('bg-black/20');
+                navContainer.classList.remove('h-24');
+                navContainer.classList.add('h-20');
+            } else {
+                nav.classList.remove('bg-black/80', 'backdrop-blur-2xl');
+                nav.classList.add('bg-black/20');
+                navContainer.classList.remove('h-20');
+                navContainer.classList.add('h-24');
+            }
+        });
+    </script>
+    <script src="cms-loader.js"></script>
+</body>
+</html>

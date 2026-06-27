@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>PROJECTS | EXISTENCE OFFICE</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary": "#5e5e5e",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-primary-fixed": "#1b1b1b",
+                        "primary-fixed": "#e2e2e2",
+                        "inverse-primary": "#c6c6c6",
+                        "surface-dim": "#dadada",
+                        "on-surface-variant": "#4c4546",
+                        "surface-tint": "#5e5e5e",
+                        "surface-bright": "#f9f9f9",
+                        "secondary-container": "#e4e2e2",
+                        "outline-variant": "#cfc4c5",
+                        "on-secondary-container": "#646464",
+                        "secondary-fixed": "#e4e2e2",
+                        "surface": "#1a1c1c",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "inverse-on-surface": "#f1f1f1",
+                        "outline": "#7e7576",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#f9f9f9",
+                        "tertiary": "#000000",
+                        "primary": "#ffffff",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "surface-container-lowest": "#1b1b1b",
+                        "on-primary-container": "#848484",
+                        "primary-container": "#1b1b1b",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-secondary-fixed-variant": "#474747",
+                        "on-primary-fixed-variant": "#474747",
+                        "background": "#000000",
+                        "on-background": "#f9f9f9",
+                        "surface-container": "#1b1b1b",
+                        "surface-container-highest": "#2f3131",
+                        "surface-variant": "#2f3131",
+                        "tertiary-fixed": "#e2e2e2",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#1b1b1b",
+                        "surface-container-low": "#111111",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-primary": "#000000",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#848484",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "section-gap": "160px",
+                        "margin-mobile": "24px",
+                        "margin-desktop": "64px",
+                        "gutter": "32px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-xl-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-xl": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["10px", {"lineHeight": "1.2", "letterSpacing": "0.3em", "fontWeight": "500"}],
+                        "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["92px", {"lineHeight": "1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-xl": ["56px", {"lineHeight": "1.1", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .image-hover-effect {
+            transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card:hover .image-hover-effect {
+            transform: scale(1.04);
+            opacity: 0.9;
+        }
+        .snap-container {
+            scroll-snap-type: y proximity;
+        }
+        .snap-section {
+            scroll-snap-align: start;
+        }
+        ::-webkit-scrollbar {
+            width: 3px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+        }
+        .metadata-line {
+            height: 1px;
+            width: 32px;
+            background: rgba(255,255,255,0.2);
+            margin-right: 12px;
+        }
+        .hero-title-mask {
+            mix-blend-mode: difference;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-black antialiased" data-page-id="projects">
+
+    <!-- TopNavBar -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-700 bg-black/20 backdrop-blur-md border-b border-white/5">
+        <div id="nav-container" class="max-w-container-max mx-auto px-margin-desktop h-24 flex justify-between items-center transition-all duration-700">
+            <a data-cms-text="nav_logo" class="font-headline-md text-headline-md text-white uppercase tracking-tighter" href="index.html">EXISTENCE OFFICE</a>
+            <div class="hidden md:flex gap-12 items-center">
+                <a data-cms-text="nav_link_home" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="index.html">Home</a>
+                <a data-cms-text="nav_link_projects" class="font-label-md text-label-md text-white border-b border-white pb-1" href="projects.html">Projects</a>
+                <a data-cms-text="nav_link_achievements" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="achievements.html">Achievements</a>
+                <a data-cms-text="nav_link_about" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="about.html">About</a>
+                <a data-cms-text="nav_link_contact" class="font-label-md text-label-md text-white/50 hover:text-white transition-colors duration-300" href="contact.html">Contact</a>
+            </div>
+            <button class="md:hidden flex items-center p-2 text-white">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="snap-container h-screen overflow-y-auto scroll-smooth">
+        
+        <!-- Section 1: Hero (VARESH TOWER) -->
+        <section class="snap-section relative h-screen w-full overflow-hidden bg-black flex items-center">
+            <div class="absolute inset-0 z-0"></div>
+            <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop">
+                <div class="grid grid-cols-12 gap-gutter">
+                    <!-- Project Image -->
+                    <div class="col-span-12 md:col-span-8 flex flex-col">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="h-[1px] w-12 bg-white/40"></div>
+                            <span data-cms-text="proj1_meta" class="font-label-sm text-white/60 uppercase tracking-[0.4em] text-[10px]">Project 01 / Residential / Gilan</span>
+                        </div>
+                        <div class="w-full aspect-[4/5] md:aspect-[16/10] overflow-hidden bg-surface-container-low mb-4">
+                            <img data-cms-img="proj1_img" alt="Varesh Tower" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" src="assets/Varesh/Varesh-1.jpg">
+                        </div>
+                    </div>
+                    <!-- Project Info -->
+                    <div class="col-span-12 md:col-span-4 flex flex-col justify-end pb-12">
+                        <div class="border-l border-white/20 pl-8 space-y-6">
+                            <h2 data-cms-text="proj1_title" class="font-display-lg text-4xl text-white uppercase tracking-tighter">VARESH TOWER</h2>
+                            <p data-cms-text="proj1_desc" class="text-white/70 font-body-md max-w-xs">
+                                Reimagining traditional Gilan houses as a contemporary vertical living. A context-responsive tower blending modern spatial poetry with nature.
+                            </p>
+                            <div class="flex flex-col gap-1">
+                                <span class="font-label-sm text-white/40 uppercase tracking-widest">Completion</span>
+                                <span data-cms-text="proj1_year" class="font-display-lg text-4xl text-white">2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4">
+                <span data-cms-text="scroll_indicator" class="font-label-sm text-white/40 uppercase tracking-[0.5em] text-[9px] rotate-0">Scroll to Explore</span>
+                <div class="w-[1px] h-16 bg-gradient-to-b from-white/60 to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- Project Gallery -->
+        <section class="snap-section bg-background py-section-gap relative overflow-hidden">
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <div class="grid grid-cols-12 gap-y-section-gap md:gap-x-gutter">
+                    
+                    <!-- 02: GILSHA -->
+                    <div class="col-span-12 md:col-span-5 scroll-reveal">
+                        <a class="group project-card block" href="gilsha.html">
+                            <div class="aspect-[3/4] overflow-hidden mb-12 bg-surface-container-low">
+                                <img data-cms-img="proj2_img" alt="Gilsha Villa" class="w-full h-full object-cover grayscale image-hover-effect" src="assets/Gilsha/Gilsha-1.jpg">
+                            </div>
+                            <div class="flex flex-col">
+                                <div class="flex items-center mb-6">
+                                    <div class="metadata-line"></div>
+                                    <span data-cms-text="proj2_meta" class="font-label-sm text-white/40 uppercase tracking-[0.3em]">2025 / UNBUILT / GILAN</span>
+                                </div>
+                                <h3 data-cms-text="proj2_title" class="font-display-lg text-5xl md:text-7xl text-white uppercase tracking-tighter transition-all duration-700 group-hover:italic">GILSHA</h3>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- 03: LIANA -->
+                    <div class="col-span-12 md:col-span-7 md:mt-64 scroll-reveal">
+                        <a class="group project-card block" href="liana.html">
+                            <div class="aspect-[16/10] overflow-hidden mb-12 bg-surface-container-low">
+                                <img data-cms-img="proj3_img" alt="Liana Villa" class="w-full h-full object-cover grayscale image-hover-effect" src="assets/Liana/Liana-3.jpeg">
+                            </div>
+                            <div class="flex flex-col">
+                                <div class="flex items-center mb-6">
+                                    <div class="metadata-line"></div>
+                                    <span data-cms-text="proj3_meta" class="font-label-sm text-white/40 uppercase tracking-[0.3em]">BUILT / RESIDENTIAL / LAHIJAN</span>
+                                </div>
+                                <h3 data-cms-text="proj3_title" class="font-display-lg text-5xl md:text-7xl text-white uppercase tracking-tighter transition-all duration-700 group-hover:italic">LIANA</h3>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- 04: TAVOUS -->
+                    <div class="col-span-12 scroll-reveal md:my-32">
+                        <a class="group project-card block" href="tavous.html">
+                            <div class="aspect-[21/9] overflow-hidden mb-12 bg-surface-container-low">
+                                <img data-cms-img="proj4_img" alt="Tavous Project" class="w-full h-full object-cover grayscale image-hover-effect" src="assets/Tavous/Tavous-1.jpg">
+                            </div>
+                            <div class="flex justify-between items-end">
+                                <div class="flex flex-col">
+                                    <div class="flex items-center mb-6">
+                                        <div class="metadata-line"></div>
+                                        <span data-cms-text="proj4_meta" class="font-label-sm text-white/40 uppercase tracking-[0.3em]">2024 / INTERIOR / ANZALI</span>
+                                    </div>
+                                    <h3 data-cms-text="proj4_title" class="font-display-lg text-5xl md:text-8xl text-white uppercase tracking-tighter transition-all duration-700 group-hover:italic">TAVOUS</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- 05: DEGARSAN -->
+                    <div class="col-span-12 md:col-span-6 md:col-start-4 scroll-reveal">
+                        <a class="group project-card block" href="degarsan.html">
+                            <div class="aspect-[4/5] overflow-hidden mb-12 bg-surface-container-low">
+                                <img data-cms-img="proj5_img" alt="Degarsan Cosmetics Store" class="w-full h-full object-cover grayscale image-hover-effect" src="./assets/DegarSan/Degarsan-5.jpg">
+                            </div>
+                            <div class="flex flex-col text-center items-center">
+                                <div class="flex items-center justify-center mb-6">
+                                    <div class="metadata-line"></div>
+                                    <span data-cms-text="proj5_meta" class="font-label-sm text-white/40 uppercase tracking-[0.3em]">2024 / PUBLIC SPACE / ANZALI FREE ZONE</span>
+                                </div>
+                                <h3 data-cms-text="proj5_title" class="font-display-lg text-5xl md:text-8xl text-white uppercase tracking-tighter transition-all duration-700 group-hover:italic">DEGARSAN</h3>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+    <footer class="w-full py-16 px-margin-desktop bg-black border-t border-white/5">
+        <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-4 text-center md:text-left">
+                <a data-cms-text="footer_logo" class="font-headline-md text-2xl text-white tracking-tighter" href="index.html">EXISTENCE OFFICE</a>
+                <span data-cms-text="footer_copyright" class="text-white/40 text-xs tracking-widest uppercase">© 2026 EXISTENCE OFFICE. ALL RIGHTS RESERVED.</span>
+            </div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-8">
+                <a data-cms-text="footer_social1" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="https://www.instagram.com/existence_office/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a data-cms-text="footer_social2" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="https://t.me/+989117212878" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a data-cms-text="footer_social3" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="https://wa.me/989117212878" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a data-cms-text="footer_social4" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="#">Behance</a>
+                <a data-cms-text="footer_social5" class="font-body-md text-white/50 hover:text-white transition-colors duration-300" href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    </main>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.05,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Handle Navbar Appearance on Scroll
+        const mainContainer = document.querySelector('main');
+        const nav = document.getElementById('main-nav');
+        const navContainer = document.getElementById('nav-container');
+        
+        mainContainer.addEventListener('scroll', () => {
+            if (mainContainer.scrollTop > 50) {
+                nav.classList.add('bg-black/80', 'backdrop-blur-2xl');
+                nav.classList.remove('bg-black/20');
+                navContainer.classList.remove('h-24');
+                navContainer.classList.add('h-20');
+            } else {
+                nav.classList.remove('bg-black/80', 'backdrop-blur-2xl');
+                nav.classList.add('bg-black/20');
+                navContainer.classList.remove('h-20');
+                navContainer.classList.add('h-24');
+            }
+        });
+    </script>
+    <script src="cms-loader.js"></script>
+</body>
+</html>
